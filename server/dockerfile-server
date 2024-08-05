@@ -1,0 +1,11 @@
+# Utilisation de l'image Python Slim
+FROM python:3.9-slim
+
+# Copier les fichiers nécessaires dans le conteneur
+COPY server.py /app/server.py
+
+# Installer les dépendances Python
+RUN pip install flask
+
+# Commande par défaut pour démarrer le serveur Flask
+CMD ["python", "/app/server.py"]

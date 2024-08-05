@@ -1,0 +1,9 @@
+# Utilisation de l'image Python Slim
+FROM python:3.9-slim
+
+# Copier les fichiers nécessaires dans le conteneur
+COPY client.py /app/client.py
+# Installer les dépendances Python (dans ce cas, requests)
+RUN pip install requests
+# Commande par défaut pour exécuter le script client
+CMD ["python", "/app/client.py"]

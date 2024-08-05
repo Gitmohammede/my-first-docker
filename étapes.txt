@@ -1,0 +1,20 @@
+Créons d'abord un réseau Docker nommé my-network pour que nos conteneurs puissent se connecter :
+==>docker network create my-network
+
+Construire l'Image du Serveur Web :
+Depuis le répertoire server/ :
+==>docker build -t server-container -f dockerfile-server .
+Construire l'Image du Client :
+
+Depuis le répertoire client/ :
+==>docker build -t client-container -f dockerfile-client.
+
+Exécuter les Conteneurs :
+Exécuter le serveur web dans le réseau <my-network> :
+==>docker run -d --name server-container --network my-network server-container
+
+Exécuter le client dans le même réseau my-network :
+==>docker run --rm --name client-container --network my-network client-container
+
+Vérification de la Communication
+==>Response from server: Hello from the server!
